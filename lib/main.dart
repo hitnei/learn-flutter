@@ -1,8 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-  home: Home()
-));
+void main() => runApp(MaterialApp(home: Home()));
 
 class Home extends StatelessWidget {
   @override
@@ -13,23 +12,24 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: Center(
-        child: RaisedButton.icon(
-          onPressed: () {
-            print('press');
-          },
-          label: Text(
-            'Whatever',
-            style: TextStyle(
-              color: Colors.white,
-            )
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text('hello'),
+          FlatButton(
+            onPressed: () {
+              print('click me again! What the h*ll');
+            },
+            child: Text('Click'),
+            color: Colors.amber,
           ),
-          icon: Icon(
-            Icons.ac_unit_rounded,
-            color: Colors.white,
-          ),
-          color: Colors.blue,
-        ),
+          Container(
+            color: Colors.grey,
+            padding: EdgeInsets.all(30),
+            child: Text('inside container'),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Text('Click'),
