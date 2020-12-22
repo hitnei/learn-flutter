@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quotes.dart';
+import 'quote_card.dart';
 
 void main() => runApp(MaterialApp(
       home: QuoteList(),
@@ -18,39 +19,19 @@ class _QuoteListState extends State<QuoteList> {
   // ];
 
   List<Quote> quotes = [
-    Quote(text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text', author: 'abc xyz'),
-    Quote(text: 'op publishing software like Aldus PageMaker including versions of Lorem Ipsum', author: 'abc xyz 123'),
-    Quote(text: 'and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', author: 'abc xyz 321'),
+    Quote(
+        text:
+            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text',
+        author: 'abc xyz'),
+    Quote(
+        text:
+            'op publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+        author: 'abc xyz 123'),
+    Quote(
+        text:
+            'and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+        author: 'abc xyz 321'),
   ];
-
-  Widget quoteTemplate(quote) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              quote.text,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(height: 6),
-            Text(
-              quote.author,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[600],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +43,7 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
       ),
     );
   }
