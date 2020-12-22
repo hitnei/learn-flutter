@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quotes.dart';
 
 void main() => runApp(MaterialApp(
       home: QuoteList(),
@@ -10,10 +11,16 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-  List<String> quotes = [
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text',
-    'op publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-    'and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+  // List<String> quotes = [
+  //   'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text',
+  //   'op publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+  //   'and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
+  // ];
+
+  List<Quote> quotes = [
+    Quote(text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text', author: 'abc xyz'),
+    Quote(text: 'op publishing software like Aldus PageMaker including versions of Lorem Ipsum', author: 'abc xyz 123'),
+    Quote(text: 'and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', author: 'abc xyz 321'),
   ];
 
   @override
@@ -26,7 +33,7 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => Text(quote)).toList(),
+        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
       ),
     );
   }
